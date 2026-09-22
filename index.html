@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Quảng Trị Quán · Menu · Asia Fusion Berlin</title>
+<meta name="description" content="Thực đơn Quảng Trị Quán – Asia Fusion, Vegan, Sushi Bar, Bánh Bao, Bánh Mỳ. Karl-Marx-Allee 108, 10243 Berlin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f2ebdb;
+  --paper-2:#eee5d0;
+  --charcoal:#1c1a17;
+  --ink:#2c2620;
+  --muted:#8a7f6c;
+  --gold:#c39a4d;
+  --gold-soft:#b8924a;
+  --brick:#8f3a30;
+  --line:#d9cdb2;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:16px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+/* ---------- HERO ---------- */
+.hero{
+  background:var(--charcoal);
+  color:#efe6d2;
+  padding:56px 22px 44px;
+  text-align:center;
+  position:relative;
+  border-bottom:3px solid var(--gold);
+}
+.crest{
+  width:74px;height:74px;margin:0 auto 18px;border-radius:50%;
+  border:2px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-size:34px;line-height:1;
+}
+.hero h1{
+  font-family:"Playfair Display",serif;
+  font-weight:700;
+  letter-spacing:.06em;
+  font-size:clamp(2.1rem,7vw,3.4rem);
+  margin:0;
+  color:var(--gold);
+}
+.hero .tag{
+  margin:14px auto 0;max-width:520px;
+  color:#d8cdb4;font-size:.95rem;font-weight:500;
+}
+.hero .addr{
+  margin-top:22px;font-size:.9rem;color:#b6ab92;line-height:1.7;
+}
+.hero .addr strong{color:#e7ddc6;font-weight:600}
+
+/* ---------- STORY ---------- */
+.story{
+  max-width:760px;margin:0 auto;padding:38px 22px 8px;
+}
+.story .tabs{
+  display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:20px;
+}
+.story .tabs button{
+  font-family:inherit;font-size:.82rem;font-weight:600;letter-spacing:.04em;
+  padding:7px 16px;border:1px solid var(--line);border-radius:999px;
+  background:transparent;color:var(--muted);cursor:pointer;transition:.15s;
+}
+.story .tabs button:hover{border-color:var(--gold)}
+.story .tabs button.active{background:var(--charcoal);color:var(--gold);border-color:var(--charcoal)}
+.story-panel{display:none;font-size:.94rem;line-height:1.75;color:#4a4237}
+.story-panel.active{display:block}
+.story-panel h3{
+  font-family:"Playfair Display",serif;color:var(--brick);
+  font-size:1.15rem;margin:20px 0 6px;font-weight:600;
+}
+.story-panel p{margin:0 0 12px}
+.story-panel .quote{
+  font-family:"Playfair Display",serif;font-style:italic;color:var(--gold-soft);
+  text-align:center;font-size:1.05rem;line-height:1.6;
+  margin:22px auto 4px;max-width:560px;
+}
+
+/* ---------- STICKY NAV ---------- */
+.catnav{
+  position:sticky;top:0;z-index:20;
+  background:var(--charcoal);
+  padding:calc(env(safe-area-inset-top,0px) + 4px) 0 4px;
+  border-bottom:1px solid #34302a;
+}
+.catnav ul{
+  display:flex;gap:2px;margin:0;padding:0 10px;list-style:none;
+  overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+}
+.catnav ul::-webkit-scrollbar{display:none}
+.catnav a{
+  display:block;white-space:nowrap;text-decoration:none;
+  color:#c9bda2;font-size:.8rem;font-weight:600;letter-spacing:.02em;
+  padding:9px 13px;border-radius:6px;transition:.15s;
+}
+.catnav a:hover,.catnav a:focus{color:var(--gold);background:#26221d}
+
+/* ---------- MENU LAYOUT ---------- */
+.menu{max-width:900px;margin:0 auto;padding:0 22px 60px}
+section.cat{padding-top:34px}
+.cat-head{
+  margin:0 0 4px;padding-bottom:14px;border-bottom:2px solid var(--charcoal);
+}
+.cat-head h2{
+  font-family:"Playfair Display",serif;font-weight:700;
+  font-size:clamp(1.5rem,4.5vw,2rem);margin:0;color:var(--charcoal);
+}
+.cat-head .en{color:var(--brick);font-size:.9rem;font-weight:500;letter-spacing:.03em}
+.cat-intro{color:var(--muted);font-size:.86rem;margin:12px 0 4px;font-style:italic}
+
+.item{
+  padding:16px 0;border-bottom:1px solid var(--line);
+}
+.item:last-child{border-bottom:none}
+.item-top{
+  display:flex;align-items:baseline;gap:12px;
+}
+.item-name{
+  font-weight:600;font-size:1.02rem;color:var(--ink);flex:1;line-height:1.3;
+}
+.item-name .code{color:var(--gold-soft);font-weight:700;margin-right:2px}
+.item-price{
+  font-weight:700;color:var(--charcoal);white-space:nowrap;font-variant-numeric:tabular-nums;
+}
+.item-desc{
+  color:var(--brick);font-size:.88rem;line-height:1.5;margin-top:5px;max-width:64ch;
+}
+.item-tag{
+  display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.06em;
+  color:var(--brick);border:1px solid var(--brick);border-radius:4px;
+  padding:1px 6px;margin-left:6px;vertical-align:middle;text-transform:uppercase;
+}
+/* option rows (A. Tofu 8,90 …) */
+.opts{margin-top:9px;display:grid;grid-template-columns:1fr 1fr;gap:2px 26px}
+@media(max-width:520px){.opts{grid-template-columns:1fr}}
+.opt{
+  display:flex;justify-content:space-between;gap:10px;
+  font-size:.85rem;padding:2px 0;border-bottom:1px dotted var(--line);
+}
+.opt span:first-child{color:var(--ink)}
+.opt span:last-child{font-weight:600;color:var(--charcoal);font-variant-numeric:tabular-nums}
+
+/* protein key box */
+.keybox{
+  background:var(--paper-2);border:1px solid var(--line);border-left:4px solid var(--gold);
+  border-radius:8px;padding:16px 18px;margin:16px 0 6px;
+}
+.keybox h4{
+  margin:0 0 10px;font-size:.82rem;font-weight:700;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--charcoal);
+}
+.keygrid{display:grid;grid-template-columns:1fr 1fr;gap:4px 30px}
+@media(max-width:520px){.keygrid{grid-template-columns:1fr}}
+.keygrid .opt{border-bottom:1px dotted var(--line)}
+
+/* footer */
+.foot{
+  background:var(--charcoal);color:#cabfa6;text-align:center;padding:44px 22px calc(env(safe-area-inset-bottom,0px) + 40px);
+  border-top:3px solid var(--gold);
+}
+.foot .name{font-family:"Playfair Display",serif;color:var(--gold);font-size:1.5rem;font-weight:700;letter-spacing:.05em}
+.foot p{margin:10px 0 0;font-size:.9rem;color:#b6ab92;line-height:1.7}
+.foot .note{margin-top:24px;font-size:.76rem;color:#8a8069;max-width:520px;margin-left:auto;margin-right:auto;font-style:italic}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="crest">⛩️</div>
+  <h1>QUẢNG TRỊ QUÁN</h1>
+  <p class="tag">Asia Fusion · Vegan · Sushi Bar · Bánh Bao · Bánh Mỳ</p>
+  <p class="addr">
+    <strong>Karl-Marx-Allee 108</strong> · 10243 Berlin, Germany<br>
+    Mo–Fr 11:30–22:00 · Sa, So &amp; Feiertage 12:00–22:00<br>
+    Tel: 0176 68484099
+  </p>
+</header>
+
+<!-- ============ STORY ============ -->
+<div class="story">
+  <div class="tabs">
+    <button class="active" data-lang="vi">Tiếng Việt</button>
+    <button data-lang="de">Deutsch</button>
+    <button data-lang="en">English</button>
+  </div>
+
+  <div class="story-panel active" data-panel="vi">
+    <h3>Từ những ngày gian khó đến Quảng Trị Quán giữa lòng Berlin</h3>
+    <p>Giữa nhịp sống sôi động của Berlin, trên con phố Karl-Marx-Allee 108, có một không gian mang tên Quảng Trị Quán – nơi những hương vị Việt Nam gặp gỡ tinh hoa ẩm thực châu Á. Đằng sau cánh cửa ấy là câu chuyện của một con người đã đi qua nhiều thăng trầm: Hồ Sỹ Lương.</p>
+    <p>Ngày trước, anh từng là một cảnh sát giao thông tại Việt Nam. Năm 2017, anh sang Đức và bắt đầu lại từ đầu nơi đất khách – từ lao công, cu li, đến phụ bếp. Qua năm tháng, kinh nghiệm được tích lũy, và lớn hơn cả là một niềm đam mê cháy bỏng với nghệ thuật ẩm thực.</p>
+    <h3>Ngày 02/02/2026 – một chương mới</h3>
+    <p>Ngày 02/02/2026, Hồ Sỹ Lương chính thức mở Quảng Trị Quán tại Berlin. Đó không chỉ là ngày khai trương một nhà hàng, mà là ngày một người đàn ông quyết định viết tiếp câu chuyện cuộc đời mình bằng nghệ thuật ẩm thực.</p>
+    <p class="quote">"Dù cuộc đời có đưa ta đi bao xa, chỉ cần còn đam mê và còn cố gắng, ta vẫn có thể viết lại câu chuyện của chính mình."</p>
+  </div>
+
+  <div class="story-panel" data-panel="de">
+    <h3>Von einem schwierigen Neuanfang zu Quảng Trị Quán mitten in Berlin</h3>
+    <p>Mitten im pulsierenden Berlin, an der Karl-Marx-Allee 108, befindet sich ein besonderer Ort: Quảng Trị Quán – ein Restaurant, in dem vietnamesische Aromen auf die Vielfalt der asiatischen Küche treffen. Hinter diesem Ort steht die Lebensgeschichte von Hồ Sỹ Lương.</p>
+    <p>Früher arbeitete er in Vietnam als Verkehrspolizist. Nach schweren Zeiten kam er 2017 nach Deutschland, um ein neues Kapitel zu beginnen. Er arbeitete als Reinigungskraft und Hilfsarbeiter, bevor er schließlich als Küchenhelfer in die Gastronomie fand. Aus Erfahrung wurde Leidenschaft – und aus Leidenschaft entstand ein Traum.</p>
+    <h3>Der 02.02.2026 – ein neuer Anfang</h3>
+    <p>Am 02.02.2026 eröffnete Hồ Sỹ Lương das Quảng Trị Quán in Berlin – der Beginn eines neuen Kapitels, das er mit der Kunst der Gastronomie weiterschreiben möchte.</p>
+    <p class="quote">"Hồ Sỹ Lương – er schreibt seine Lebensgeschichte mit der Kunst der Küche weiter."</p>
+  </div>
+
+  <div class="story-panel" data-panel="en">
+    <h3>From Hardship to Quảng Trị Quán in the Heart of Berlin</h3>
+    <p>In the vibrant city of Berlin, at Karl-Marx-Allee 108, there is a special place called Quảng Trị Quán – a restaurant where Vietnamese flavors meet the richness and diversity of Asian cuisine. Behind this restaurant is the life story of Hồ Sỹ Lương.</p>
+    <p>He was once a traffic police officer in Vietnam. In 2017, he came to Germany and began rebuilding his life from almost nothing – working as a cleaner and laborer, and later a kitchen assistant. Over the years he gained experience, knowledge and confidence, and slowly a dream began to take shape.</p>
+    <h3>February 2nd, 2026 – A New Chapter</h3>
+    <p>On February 2nd, 2026, Hồ Sỹ Lương opened Quảng Trị Quán in Berlin. It was more than the opening of a restaurant – it was a new chapter he wanted to write through the art of food.</p>
+    <p class="quote">"Hồ Sỹ Lương – continuing to write his life story through the art of food."</p>
+  </div>
+</div>
+
+<!-- ============ CATEGORY NAV ============ -->
+<nav class="catnav" aria-label="Danh mục thực đơn">
+  <ul>
+    <li><a href="#khaivi">Khai vị</a></li>
+    <li><a href="#sup">Súp</a></li>
+    <li><a href="#salad">Salad</a></li>
+    <li><a href="#annhe">Bánh &amp; Ăn nhẹ</a></li>
+    <li><a href="#banhmy">Bánh Mỳ</a></li>
+    <li><a href="#banhbao">Bánh Bao</a></li>
+    <li><a href="#dactrung">Món đặc trưng</a></li>
+    <li><a href="#monchinh">Món chính</a></li>
+    <li><a href="#vegan">Vegan</a></li>
+    <li><a href="#dacsan">Đặc sản</a></li>
+    <li><a href="#bowl">Bowl</a></li>
+    <li><a href="#sashimi">Sashimi</a></li>
+    <li><a href="#nigiri-new">Nigiri New Style</a></li>
+    <li><a href="#nigiri">Nigiri &amp; Gunkan</a></li>
+    <li><a href="#maki">Maki</a></li>
+    <li><a href="#futomaki">Futo Maki</a></li>
+    <li><a href="#spezialrolls">Spezial Rolls</a></li>
+    <li><a href="#insideout">Inside Out</a></li>
+    <li><a href="#temaki">Temaki</a></li>
+    <li><a href="#minitempura">Mini Tempura</a></li>
+    <li><a href="#bigtempura">Big Tempura</a></li>
+    <li><a href="#sushimenu">Sushi Menü</a></li>
+    <li><a href="#eventplatte">Event Platte</a></li>
+    <li><a href="#dessert">Tráng miệng</a></li>
+    <li><a href="#sides">Món phụ</a></li>
+    <li><a href="#bigboom">Big Boom</a></li>
+    <li><a href="#douong">Đồ uống Việt</a></li>
+    <li><a href="#tra">Trà</a></li>
+    <li><a href="#caphe">Cà phê</a></li>
+    <li><a href="#nuocngot">Nước ngọt</a></li>
+    <li><a href="#homemade">Homemade &amp; Lassi</a></li>
+    <li><a href="#bia">Bia &amp; Rượu</a></li>
+    <li><a href="#vang">Vang</a></li>
+    <li><a href="#longdrinks">Longdrinks</a></li>
+    <li><a href="#mocktail">Mocktail</a></li>
+    <li><a href="#cocktail">Cocktail</a></li>
+  </ul>
+</nav>
+
+<main class="menu">
+
+  <!-- ===== KHAI VỊ ===== -->
+  <section class="cat" id="khaivi">
+    <div class="cat-head">
+      <h2>Khai vị</h2><span class="en">Vorspeisen · Starters</span>
+    </div>
+
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">13.</span> Sweet Potato</div><div class="item-price">5,00 €</div></div><div class="item-desc">Fried sweet potato with cocktail sauce for dipping.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">14.</span> Yakitori (3 pcs.)</div><div class="item-price">4,30 €</div></div><div class="item-desc">Japanese-style chicken skewers refined with homemade sauce.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">15.</span> Fried Gyoza</div></div><div class="item-desc">Fried dumplings refined with homemade sauce.</div>
+      <div class="opts"><div class="opt"><span>A. Chay / Vegetarian</span><span>5,00 €</span></div><div class="opt"><span>B. Gà / Chicken</span><span>5,00 €</span></div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">16.</span> Dim Sum – Há Cảo Hấp (4 pcs.)</div><div class="item-price">5,20 €</div></div><div class="item-desc">Steamed dumplings filled with shrimp, served with a sweet and sour dressing.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">17.</span> Tôm Chiên Cốm – Fry Ebi (3 pcs.)</div><div class="item-price">5,50 €</div></div><div class="item-desc">Deep-fried prawns coated with green sticky rice, served with a sweet and sour dip.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">18.</span> Nem Chay</div><div class="item-price">3,80 €</div></div><div class="item-desc">Crispy baked rice rolls filled with vegetables, mung beans, glass noodles, morels; served with salad garnish and chili-lime-ginger dip.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">19.</span> Fried Eggplant <span class="item-tag">Vegan</span></div><div class="item-price">5,80 €</div></div><div class="item-desc">Eggplant tempura with homemade sauce.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">20.</span> Tofu Teriyaki</div><div class="item-price">5,80 €</div></div><div class="item-desc">Tofu tempura with homemade sauce.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">21.</span> Avocado Chiên Xù</div><div class="item-price">5,80 €</div></div><div class="item-desc">Avocado tempura with homemade sauce.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">22.</span> Rolling Spring (2 pcs.)</div><div class="item-price">4,80 €</div></div><div class="item-desc">Homemade crispy spring roll filled with chicken and vegetables, served with a nuoc mam sauce.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">23.</span> Chicken Saté (2 pcs.)</div><div class="item-price">5,00 €</div></div><div class="item-desc">Grilled chicken skewers marinated with Vietnamese spices, refined with chopped peanuts, served with a small side salad and peanut sauce.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">24.</span> Gebackene Wantans (4 pcs.)</div><div class="item-price">4,80 €</div></div><div class="item-desc">Fried wonton dumplings filled with minced chicken or tofu. — A. Tofu / B. Chicken</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">25.</span> Sommerrollen (2 pcs.)</div></div><div class="item-desc">Filled with rice noodles, salad, fresh herbs, rolled in rice paper with hoisin sauce.</div>
+      <div class="opts">
+        <div class="opt"><span>A. Đậu phụ / Tofu</span><span>4,10 €</span></div>
+        <div class="opt"><span>B. Gà / Chicken</span><span>4,50 €</span></div>
+        <div class="opt"><span>F. Tôm / Prawns</span><span>4,90 €</span></div>
+        <div class="opt"><span>K. Seitan (vegan)</span><span>4,20 €</span></div>
+        <div class="opt"><span>G. Cá hồi / Salmon</span><span>4,90 €</span></div>
+      </div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">26.</span> Vorspeisen Platte 1 <span class="item-tag">2 người</span></div><div class="item-price">17,90 €</div></div><div class="item-desc">4× chicken gyoza, 2× fried chicken wontons, 2× Tôm Chiên Cốm, 2× summer rolls, kimchi salad; served with sweet &amp; sour and hoisin sauce.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">27.</span> Vorspeisen Platte 2 <span class="item-tag">2 người</span></div><div class="item-price">17,90 €</div></div><div class="item-desc">4× vegetarian spring rolls (Nem Chay), 2× tofu gyoza, teriyaki tofu, edamame, 2× summer rolls; served with sweet &amp; sour and hoisin sauce.</div></div>
+  </section>
+
+  <!-- ===== SÚP ===== -->
+  <section class="cat" id="sup">
+    <div class="cat-head"><h2>Súp</h2><span class="en">Suppen · Soups</span></div>
+
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">1.</span> Miso-Suppe</div></div><div class="item-desc">With soybean paste, seaweed, and leek.</div>
+      <div class="opts"><div class="opt"><span>A. Đậu phụ / Tofu</span><span>3,90 €</span></div><div class="opt"><span>G. Cá hồi / Salmon (spicy)</span><span>4,20 €</span></div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">2.</span> Wantan-Suppe</div><div class="item-price">3,90 €</div></div><div class="item-desc">Dumplings filled with chicken and spices in a clear broth refined with sesame oil, vegetables and Vietnamese herbs.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">3.</span> Tom-Kha-Gai Suppe <span class="item-tag">Cay</span></div></div><div class="item-desc">With coconut milk and kaffir leaves, tomatoes, lemongrass and fresh mushrooms.</div>
+      <div class="opts"><div class="opt"><span>A. Tofu</span><span>3,50 €</span></div><div class="opt"><span>B. Chicken</span><span>3,90 €</span></div><div class="opt"><span>G. Salmon</span><span>4,20 €</span></div><div class="opt"><span>F. Prawns</span><span>4,20 €</span></div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">4.</span> Tom-Yam Suppe <span class="item-tag">Cay</span></div></div><div class="item-desc">Hearty lemongrass soup with fresh mushrooms, tomatoes, and coriander.</div>
+      <div class="opts"><div class="opt"><span>A. Tofu</span><span>3,50 €</span></div><div class="opt"><span>B. Chicken</span><span>3,90 €</span></div><div class="opt"><span>G. Salmon</span><span>4,20 €</span></div><div class="opt"><span>F. Prawns</span><span>4,20 €</span></div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">5.</span> Sauer-Scharf-Suppe</div><div class="item-price">4,20 €</div></div><div class="item-desc">Chicken, bamboo shoots, bell peppers, morels, carrots, egg.</div></div>
+  </section>
+
+  <!-- ===== SALAD ===== -->
+  <section class="cat" id="salad">
+    <div class="cat-head"><h2>Salad</h2><span class="en">Salate · Salads</span></div>
+
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">6.</span> Edamame</div><div class="item-price">4,80 €</div></div><div class="item-desc">Green soybeans.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">7.</span> Wakame</div><div class="item-price">4,50 €</div></div><div class="item-desc">Pickled seaweed salad with sesame.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">8.</span> Kim Chi <span class="item-tag">Cay</span></div><div class="item-price">4,80 €</div></div><div class="item-desc">Pickled Chinese cabbage.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">9.</span> Papaya Salat <span class="item-tag">Cay</span></div></div><div class="item-desc">Green papaya, lime, tomatoes, carrot strips, coriander, peanuts, refined with chili-lime dressing.</div>
+      <div class="opts"><div class="opt"><span>A. Tofu</span><span>4,80 €</span></div><div class="opt"><span>B. Chicken</span><span>5,20 €</span></div><div class="opt"><span>F. Prawns</span><span>5,50 €</span></div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">10.</span> Nộm Xoài – Mango Salat</div></div><div class="item-desc">Fresh mango salad with carrots, fresh herbs, soy sprouts in a traditional sauce, served with peanuts and fried onions.</div>
+      <div class="opts"><div class="opt"><span>A. Tofu</span><span>4,10 €</span></div><div class="opt"><span>B. Chicken</span><span>4,30 €</span></div><div class="opt"><span>F. Prawns</span><span>4,80 €</span></div><div class="opt"><span>K. Seitan (vegan)</span><span>4,30 €</span></div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">11.</span> Hotegai</div><div class="item-price">9,80 €</div></div><div class="item-desc">3 grilled scallops with salad and special sauce.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">12.</span> Octopus Salat</div><div class="item-price">9,80 €</div></div><div class="item-desc">Octopus on salad with special sauce.</div></div>
+  </section>
+
+  <!-- ===== BÁNH & ĂN NHẸ ===== -->
+  <section class="cat" id="annhe">
+    <div class="cat-head"><h2>Các món bánh &amp; ăn nhẹ</h2><span class="en">Snacks &amp; Small Bites</span></div>
+
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QT1.</span> Bánh lọc lá chuối (5 pcs.)</div><div class="item-price">6,00 €</div></div><div class="item-desc">Tapioca in banana leaves with fried onions, coriander, shrimp &amp; pork filling.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QT2.</span> Bánh lọc chiên (5 pcs.)</div><div class="item-price">6,00 €</div></div><div class="item-desc">Fried tapioca with fried onions, coriander, shrimp &amp; pork filling.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QT3.</span> Bánh Nậm (5 pcs.)</div><div class="item-price">6,00 €</div></div><div class="item-desc">Rice and tapioca dough wrapped in banana leaves with shrimp and minced meat filling.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QT4.</span> Bánh bèo</div><div class="item-price">8,90 €</div></div><div class="item-desc">Steamed mini rice cakes with dried shrimp, scallion oil, and crispy pork rinds, served with homemade sauce.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QT5.</span> Nem lụi (2 pcs.)</div><div class="item-price">6,00 €</div></div><div class="item-desc">Grilled lemongrass pork skewers.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QT6.</span> Chân gà sả tắc</div><div class="item-price">8,00 €</div></div><div class="item-desc">Chicken feet with lemongrass and kumquat.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QT8.</span> Hến xào</div><div class="item-price">8,00 €</div></div><div class="item-desc">Mini clams stir-fried with leek, garlic, chili, fried onions, peanuts, and coriander.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QT9.</span> Khoai lang kén</div><div class="item-price">6,00 €</div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QT10.</span> Ốc hương hấp sả</div><div class="item-price">9,00 €</div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QT11.</span> Ốc bươu hấp sả</div><div class="item-price">9,00 €</div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QT12.</span> Ếch xào sả ớt</div><div class="item-price">9,00 €</div></div></div>
+  </section>
+
+  <!-- ===== BÁNH MỲ ===== -->
+  <section class="cat" id="banhmy">
+    <div class="cat-head"><h2>Bánh Mỳ</h2><span class="en">Vietnamese / Saigon Baguette</span></div>
+    <p class="cat-intro">Saigon baguette filled with cucumber, pickled radish, carrots, pâté, chili, coriander.</p>
+
+    <div class="item"><div class="item-top"><div class="item-name">Bánh mỳ chay <span class="item-tag">Chay</span></div><div class="item-price">6,00 €</div></div><div class="item-desc">Vegetarian.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name">Bánh mỳ Xá xíu</div><div class="item-price">6,50 €</div></div><div class="item-desc">BBQ pork / Char Siu.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name">Bánh mỳ Giò chả</div><div class="item-price">6,50 €</div></div><div class="item-desc">Vietnamese cinnamon pork sausage.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name">Bánh mỳ Thịt nướng</div><div class="item-price">6,50 €</div></div><div class="item-desc">Marinated grilled pork.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name">Bánh mỳ Trứng</div><div class="item-price">6,00 €</div></div><div class="item-desc">Fried egg.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name">Bánh mỳ Thập Cẩm</div><div class="item-price">8,90 €</div></div><div class="item-desc">Special combo.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name">Bánh mỳ chảo</div><div class="item-price">13,90 €</div></div><div class="item-desc">Sizzling pan with fried beef, fried egg, pâté, onions, tomatoes, sausage.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name">Bánh mỳ Bột lọc</div><div class="item-price">6,50 €</div></div><div class="item-desc">Tapioca with fried onions, coriander, shrimp, pork filling.</div></div>
+  </section>
+
+  <!-- ===== BÁNH BAO ===== -->
+  <section class="cat" id="banhbao">
+    <div class="cat-head"><h2>Bánh Bao</h2><span class="en">Steamed Buns</span></div>
+
+    <div class="item"><div class="item-top"><div class="item-name">Bánh bao chay <span class="item-tag">Chay</span></div><div class="item-price">4,80 €</div></div><div class="item-desc">Steamed bun filled with vegetables and wood ear mushrooms.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name">Bánh bao Cốm dừa</div><div class="item-price">5,00 €</div></div><div class="item-desc">Pandan and young rice filling.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name">Bánh bao Classic</div><div class="item-price">5,00 €</div></div><div class="item-desc">Pork and wood ear mushrooms.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name">Bánh bao Phô mai Xá xíu</div><div class="item-price">5,00 €</div></div><div class="item-desc">Char siu pork, grated mozzarella.</div></div>
+  </section>
+
+  <!-- ===== MÓN ĐẶC TRƯNG (QTS) ===== -->
+  <section class="cat" id="dactrung">
+    <div class="cat-head"><h2>Các món chính đặc trưng</h2><span class="en">Signature Main Courses</span></div>
+
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QTS1.</span> Bún chả cá Lã Vọng</div><div class="item-price">13,90 €</div></div><div class="item-desc">Rice noodle soup with fried fish fillet and fish cakes in aromatic fish broth.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QTS2.</span> Bún chả lá lốt</div><div class="item-price">10,90 €</div></div><div class="item-desc">Rice noodles with salad, stuffed betel leaves, peanuts, fried onions, and homemade sauce.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QTS3.</span> Bánh đa cua Hải Phòng</div><div class="item-price">9,00 €</div></div><div class="item-desc">Rice noodle soup with tomatoes, crab meat, tofu, and stuffed betel leaves.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QTS4.</span> Cháo bột cá lóc</div><div class="item-price">13,90 €</div></div><div class="item-desc">Homemade thick rice ribbon noodles in a rich fish broth, served with spicy pan-fried snakehead fish fillet, turmeric, chives and chili.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QTS5.</span> Bún bò Huế</div><div class="item-price">13,90 €</div></div><div class="item-desc">Rice noodle soup in beef broth with lemongrass, coriander, onions, beef, cooked blood, and pig's feet.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QTS6.</span> Súp Lươn Nghệ An</div><div class="item-price">13,90 €</div></div><div class="item-desc">Served with bread.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QTS8.</span> Cơm tấm Sài Gòn</div><div class="item-price">13,90 €</div></div><div class="item-desc">Rice with juicy grilled pork chop, steamed egg casserole (chả trứng) and crispy pork rind, sweet and sour fish sauce and pickled vegetables.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QTS9.</span> Bánh xèo</div><div class="item-price">13,90 €</div></div><div class="item-desc">Vietnamese pancake filled with shrimp, pork tenderloin, and bean sprouts; served with lettuce, fresh herbs, and homemade lime-fish sauce.</div></div>
+  </section>
+
+  <!-- ===== MÓN CHÍNH (Hauptspeisen) ===== -->
+  <section class="cat" id="monchinh">
+    <div class="cat-head"><h2>Món chính</h2><span class="en">Hauptspeisen · Main Dishes</span></div>
+
+    <div class="keybox">
+      <h4>Chọn topping · Choose your protein (áp dụng cho món 30–45)</h4>
+      <div class="keygrid">
+        <div class="opt"><span>A. Đậu phụ / Tofu</span><span>8,90 €</span></div>
+        <div class="opt"><span>B. Gà / Chicken</span><span>9,50 €</span></div>
+        <div class="opt"><span>C. Gà chiên giòn / Baked chicken</span><span>10,50 €</span></div>
+        <div class="opt"><span>D. Bò / Beef</span><span>12,90 €</span></div>
+        <div class="opt"><span>E. Vịt giòn / Crispy duck</span><span>14,90 €</span></div>
+        <div class="opt"><span>F. Tôm / Prawns</span><span>12,90 €</span></div>
+        <div class="opt"><span>G. Cá hồi / Salmon</span><span>13,80 €</span></div>
+        <div class="opt"><span>H. Ức vịt nướng / Grilled duck breast</span><span>16,90 €</span></div>
+      </div>
+    </div>
+
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">30.</span> Mỳ Xào – Nudelpfanne</div></div><div class="item-desc">Fried noodles with fresh vegetables. Chọn topping A–H.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">31.</span> Cơm Rang – Reispfanne</div></div><div class="item-desc">Fried egg rice with fresh vegetables. Chọn topping A–H.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">32.</span> Phở Xào / Pad Thai <span class="item-tag">Cay</span></div></div><div class="item-desc">Fried Thai rice noodles with vegetables. Chọn topping A–H.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">33.</span> Udon Xào</div></div><div class="item-desc">Fried udon noodles with vegetables. Chọn topping A–H.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">34.</span> Cơm Cà Ri – Red Curry</div></div><div class="item-desc">Red curry with coconut milk, various vegetables, rice. Chọn topping A–H.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">35.</span> Cà Ri Vàng – Yellow Curry</div></div><div class="item-desc">Yellow curry with coconut milk, various vegetables, rice. Chọn topping A–H.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">36.</span> Masaman Curry</div></div><div class="item-desc">Masaman curry with coconut milk, various vegetables, rice. Chọn topping A–H.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">37.</span> Cà Ri Xanh – Green Curry</div></div><div class="item-desc">Green curry with coconut milk, various vegetables, rice. Chọn topping A–H.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">38.</span> Cơm Sốt Lạc – Peanut Style</div></div><div class="item-desc">Peanut sauce with coconut milk, various vegetables, rice. Chọn topping A–H.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">39.</span> Cơm Sốt Xoài Cay – Mango Curry</div></div><div class="item-desc">Mango curry sauce with coconut milk, various vegetables, rice. Chọn topping A–H.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">40.</span> Cơm Sốt Avocado – Avocado Curry</div></div><div class="item-desc">Avocado curry sauce with coconut milk, various vegetables, rice. Chọn topping A–H.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">41.</span> Phad Krapao <span class="item-tag">Cay</span></div></div><div class="item-desc">Fried chop suey sauce with various vegetables, rice, garlic. Chọn topping A–H.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">42.</span> Lemongrass <span class="item-tag">Cay</span></div></div><div class="item-desc">Chop suey sauce with various vegetables, rice, lemongrass. Chọn topping A–H.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">43.</span> Phở Trộn Khô – Phở Salat Mix</div></div><div class="item-desc">Rice noodle salad in homemade sauce, with fresh salad, peanuts and roasted onions. Chọn topping A–H.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">44.</span> Bún Trộn – Bún Salat Mix</div></div><div class="item-desc">Rice noodle salad in homemade sauce, with fresh salad, peanuts and roasted onions. Chọn topping A–H.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">45.</span> Udon Trộn Khô – Udon Salat Mix</div></div><div class="item-desc">Udon noodle salad in homemade sauce, with fresh salad, peanuts and roasted onions. Chọn topping A–H.</div></div>
+
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">46.</span> Phở Việt Nam</div></div><div class="item-desc">Rice noodle soup with coriander, onions, lemon, chili.</div>
+      <div class="opts"><div class="opt"><span>A. Tofu</span><span>8,90 €</span></div><div class="opt"><span>B. Chicken</span><span>9,50 €</span></div><div class="opt"><span>D. Beef</span><span>12,90 €</span></div><div class="opt"><span>S. Beef &amp; Chicken</span><span>13,90 €</span></div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">47.</span> Udon Suppe</div></div><div class="item-desc">Traditional Japanese soup with vegetables.</div>
+      <div class="opts"><div class="opt"><span>A. Tofu</span><span>8,90 €</span></div><div class="opt"><span>B. Chicken</span><span>9,50 €</span></div><div class="opt"><span>D. Beef</span><span>12,90 €</span></div><div class="opt"><span>G. Salmon</span><span>13,90 €</span></div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">48.</span> Ramen Suppe</div></div><div class="item-desc">Japanese noodle soup with vegetables.</div>
+      <div class="opts"><div class="opt"><span>A. Tofu</span><span>8,90 €</span></div><div class="opt"><span>B. Chicken</span><span>9,50 €</span></div><div class="opt"><span>D. Beef</span><span>12,90 €</span></div><div class="opt"><span>G. Salmon</span><span>13,90 €</span></div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">49.</span> Hoisin Sauce</div></div><div class="item-desc">Hoisin sauce with vegetables.</div>
+      <div class="opts"><div class="opt"><span>C. Baked chicken</span><span>10,90 €</span></div><div class="opt"><span>E. Duck</span><span>14,90 €</span></div><div class="opt"><span>F. Prawns</span><span>12,90 €</span></div><div class="opt"><span>G. Salmon</span><span>13,90 €</span></div><div class="opt"><span>H. Grilled duck breast</span><span>16,90 €</span></div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">50.</span> Süß-Sauer-Sauce</div></div><div class="item-desc">Sweet and sour sauce with vegetables.</div>
+      <div class="opts"><div class="opt"><span>C. Baked chicken</span><span>10,90 €</span></div><div class="opt"><span>E. Duck</span><span>14,90 €</span></div><div class="opt"><span>F. Prawns</span><span>12,90 €</span></div><div class="opt"><span>G. Salmon</span><span>13,90 €</span></div><div class="opt"><span>H. Grilled duck breast</span><span>16,90 €</span></div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">51.</span> Bún Nam Bộ</div></div><div class="item-desc">Rice noodles with salad, peanuts, fried onions, and Vietnamese herbs in a homemade sauce.</div>
+      <div class="opts"><div class="opt"><span>A. Tofu</span><span>8,90 €</span></div><div class="opt"><span>B. Chicken</span><span>9,50 €</span></div><div class="opt"><span>D. Beef</span><span>12,90 €</span></div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">52.</span> Bún Chả Nướng</div><div class="item-price">12,00 €</div></div><div class="item-desc">Rice noodles with grilled pork, salad, served with homemade sauce.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">53.</span> Bún Nem Thịt</div><div class="item-price">12,00 €</div></div><div class="item-desc">Rice noodles with spring rolls, salad, served with homemade sauce.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">54.</span> Bún Nem Chay <span class="item-tag">Chay</span></div><div class="item-price">12,00 €</div></div><div class="item-desc">Rice noodles with nem chay, salad, served with homemade sauce.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">55.</span> Bánh Bao Burger</div></div><div class="item-desc">Steamed bao bun with homemade sauce, salad, served with sweet potato fries.</div>
+      <div class="opts"><div class="opt"><span>A. Tofu</span><span>11,90 €</span></div><div class="opt"><span>D. Beef</span><span>12,90 €</span></div></div></div>
+  </section>
+
+  <!-- ===== VEGAN ===== -->
+  <section class="cat" id="vegan">
+    <div class="cat-head"><h2>Vegan</h2><span class="en">Vegan Dishes</span></div>
+
+    <div class="keybox">
+      <h4>Chọn topping · Choose your option (món 60–63)</h4>
+      <div class="keygrid">
+        <div class="opt"><span>A. Đậu phụ / Tofu</span><span>8,90 €</span></div>
+        <div class="opt"><span>L. Gà chay / Chicken Vegan</span><span>11,90 €</span></div>
+        <div class="opt"><span>K. Seitan</span><span>9,80 €</span></div>
+        <div class="opt"><span>M. Vịt chay / Ente Vegan</span><span>12,90 €</span></div>
+        <div class="opt"><span>N. Bò chay / Beef Vegan</span><span>11,90 €</span></div>
+        <div class="opt"><span>P. Tôm chay / Prawn Vegan</span><span>11,90 €</span></div>
+      </div>
+    </div>
+
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">60.</span> Rau Xào Sả Ớt <span class="item-tag">Chay · Cay</span></div></div><div class="item-desc">Stir-fried with vegetables and lemongrass in vegetarian oyster sauce. Chọn topping A/L/K/M/N/P.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">61.</span> Rau Xào Tỏi Cay <span class="item-tag">Chay · Cay</span></div></div><div class="item-desc">Stir-fried with vegetables and garlic. Chọn topping A/L/K/M/N/P.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">62.</span> Cơm Curry Chay – Curry Vegan</div></div><div class="item-desc">Curry sauce with coconut milk, assorted vegetables, and rice. Chọn topping A/L/K/M/N/P.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">63.</span> Cơm Sốt Xoài Chay – Mango Curry Vegan</div></div><div class="item-desc">Mango curry sauce with coconut milk, assorted vegetables, and rice. Chọn topping A/L/K/M/N/P.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">64.</span> Bún Chả Cá</div><div class="item-price">12,90 €</div></div><div class="item-desc">Grilled fish soy fillet with salad, served with rice noodles and homemade sauce.</div></div>
+  </section>
+
+  <!-- ===== ĐẶC SẢN ===== -->
+  <section class="cat" id="dacsan">
+    <div class="cat-head"><h2>Đặc sản Quảng Trị</h2><span class="en">Quảng Trị Spezialitäten</span></div>
+
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">56.</span> Cá Lachs Nướng</div><div class="item-price">16,90 €</div></div><div class="item-desc">Grilled salmon with vegetables and sweet potato fries.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">57.</span> Tôm Nướng</div><div class="item-price">16,90 €</div></div><div class="item-desc">Grilled prawns with vegetables and sweet potato fries.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">58.</span> Tuna Nướng</div><div class="item-price">19,80 €</div></div><div class="item-desc">Grilled tuna with vegetables and sweet potato fries.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">59.</span> Bò Bít Tết</div><div class="item-price">19,80 €</div></div><div class="item-desc">Vietnamese-style marinated roast beef (approx. 200g) served on a hot cast-iron skillet with sweet potatoes, onions, tomatoes, and a fried egg.</div></div>
+  </section>
+
+  <!-- ===== BOWL ===== -->
+  <section class="cat" id="bowl">
+    <div class="cat-head"><h2>Bowl</h2><span class="en">Poke &amp; Rice Bowls</span></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">70.</span> Salmon Poke Bowl</div><div class="item-price">16,50 €</div></div><div class="item-desc">Raw salmon in soy-sesame sauce with avocado, bell pepper, edamame, cucumber, shinko, tobiko on red rice, with dressing.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">71.</span> Tuna Poke Bowl <span class="item-tag">Cay</span></div><div class="item-price">18,50 €</div></div><div class="item-desc">Raw tuna in chili soy-sesame sauce with avocado, bell pepper, edamame, cucumber, shinko, tobiko on red rice, with dressing.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">72.</span> Vegi Poke Bowl</div><div class="item-price">14,50 €</div></div><div class="item-desc">Inari, edamame, shinko, bell pepper, sesame, tamago, avocado, cucumber on red rice, with dressing.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">73.</span> Fried Bowl</div><div class="item-price">17,90 €</div></div><div class="item-desc">Red rice with fried chicken and prawns, avocado, cucumber, seaweed salad, kimchi, dressing, sesame.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">74.</span> Mixed Bowl</div><div class="item-price">23,90 €</div></div><div class="item-desc">Red rice with salmon, tuna, butterfish, prawns, octopus, seaweed salad, kimchi, avocado, cucumber, dressing.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">75.</span> Spicy Sake Tatar Don</div><div class="item-price">16,00 €</div></div><div class="item-desc">Red rice with salmon tartar, chili mayo, cucumber, avocado, spring onion, sesame, tobiko, with dressing.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">76.</span> Spicy Tuna Tatar Don</div><div class="item-price">19,80 €</div></div><div class="item-desc">Red rice with tuna tartar, chili mayo, cucumber, avocado, spring onion, sesame, tobiko, with dressing.</div></div>
+  </section>
+
+  <!-- ===== SASHIMI ===== -->
+  <section class="cat" id="sashimi">
+    <div class="cat-head"><h2>Sashimi</h2><span class="en">Sashimi</span></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">80.</span> Sake Sashimi <span style="color:var(--muted);font-weight:400">(nhỏ · 6 Sake)</span></div><div class="item-price">12,00 €</div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">81.</span> Sake Sashimi <span style="color:var(--muted);font-weight:400">(lớn · 14 Sake)</span></div><div class="item-price">21,00 €</div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">82.</span> Tuna Sashimi <span style="color:var(--muted);font-weight:400">(nhỏ · 6 Tuna)</span></div><div class="item-price">13,50 €</div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">83.</span> Tuna Sashimi <span style="color:var(--muted);font-weight:400">(lớn · 14 Tuna)</span></div><div class="item-price">24,50 €</div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">84.</span> Ibodai Sashimi <span style="color:var(--muted);font-weight:400">(6 Ibodai · Butterfisch)</span></div><div class="item-price">12,00 €</div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">85.</span> Sashimi Mix</div><div class="item-price">27,00 €</div></div><div class="item-desc">4 Sake, 4 Tuna, 2 Ebi, 2 Ibodai, 2 Ika, 2 Tako.</div></div>
+  </section>
+
+  <!-- ===== NIGIRI NEW STYLE ===== -->
+  <section class="cat" id="nigiri-new">
+    <div class="cat-head"><h2>Nigiri &amp; Gunkan – New Style</h2><span class="en">New Style</span></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">86.</span> Salmon Rose</div><div class="item-price">3,70 €</div></div><div class="item-desc">Flamed salmon with chopped salmon, spring onion, tobiko, chili mayo.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">87.</span> Sakura Aburi</div><div class="item-price">3,70 €</div></div><div class="item-desc">Flamed salmon with eel, eel sauce.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">88.</span> Sake Aburi</div><div class="item-price">3,70 €</div></div><div class="item-desc">Flamed salmon with asparagus, chili mayo.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">89.</span> Maguro Aburi</div><div class="item-price">3,90 €</div></div><div class="item-desc">Flamed tuna with asparagus, chili mayo.</div></div>
+  </section>
+
+  <!-- ===== NIGIRI & GUNKAN ===== -->
+  <section class="cat" id="nigiri">
+    <div class="cat-head"><h2>Nigiri &amp; Gunkan</h2><span class="en">Fish on hand-formed rice · 1 piece</span></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">N1.</span> Tamago</div><div class="item-price">1,70 €</div></div><div class="item-desc">Japanese sweet omelette.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">N2.</span> Inari</div><div class="item-price">1,70 €</div></div><div class="item-desc">Japanese tofu pouch.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">N3.</span> Avocado</div><div class="item-price">1,70 €</div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">N4.</span> Spargel</div><div class="item-price">1,70 €</div></div><div class="item-desc">Asparagus.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">N5.</span> Hokkaido</div><div class="item-price">1,70 €</div></div><div class="item-desc">Pumpkin.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">N6.</span> Sake</div><div class="item-price">1,90 €</div></div><div class="item-desc">Salmon.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">N7.</span> Maguro</div><div class="item-price">2,30 €</div></div><div class="item-desc">Raw tuna.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">N8.</span> Ibodai</div><div class="item-price">2,30 €</div></div><div class="item-desc">Butterfish.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">N9.</span> Unagi</div><div class="item-price">2,30 €</div></div><div class="item-desc">Grilled freshwater eel.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">N10.</span> Hotategai</div><div class="item-price">2,50 €</div></div><div class="item-desc">Scallop.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">N11.</span> Ika</div><div class="item-price">1,90 €</div></div><div class="item-desc">Cuttlefish (small squid).</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">N12.</span> Kani</div><div class="item-price">1,90 €</div></div><div class="item-desc">Surimi.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">N13.</span> Ebi</div><div class="item-price">1,90 €</div></div><div class="item-desc">Cooked prawn.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">N14.</span> Hokkgai</div><div class="item-price">2,50 €</div></div><div class="item-desc">Surf clam.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">N15.</span> Tobiko Gunkan</div><div class="item-price">2,30 €</div></div><div class="item-desc">Flying fish roe.</div></div>
+  </section>
+
+  <!-- ===== MAKI ===== -->
+  <section class="cat" id="maki">
+    <div class="cat-head"><h2>Maki</h2><span class="en">je 6 Stück · 6 pieces</span></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">M1.</span> Avocado Maki</div><div class="item-price">3,60 €</div></div><div class="item-desc">Avocado, sesame.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">M2.</span> Kappa Maki</div><div class="item-price">3,60 €</div></div><div class="item-desc">Cucumber, sesame.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">M3.</span> Tamago Maki</div><div class="item-price">3,60 €</div></div><div class="item-desc">Japanese omelette.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">M4.</span> Shinko Maki</div><div class="item-price">3,60 €</div></div><div class="item-desc">Pickled radish.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">M5.</span> Kampyo Maki</div><div class="item-price">3,60 €</div></div><div class="item-desc">Pumpkin strips.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">M6.</span> Inari Maki</div><div class="item-price">3,60 €</div></div><div class="item-desc">Japanese tofu, sesame.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">M7.</span> Rucola Maki</div><div class="item-price">3,60 €</div></div><div class="item-desc">Arugula, cream cheese, sesame.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">M8.</span> Spargel Maki</div><div class="item-price">3,60 €</div></div><div class="item-desc">Green asparagus, cream cheese.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">M9.</span> Paprika Maki</div><div class="item-price">3,60 €</div></div><div class="item-desc">Bell pepper, cream cheese, sesame.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">M10.</span> Hokkaido Maki</div><div class="item-price">3,60 €</div></div><div class="item-desc">Pumpkin, vegan cheese, sesame.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">M11.</span> Sake Maki</div><div class="item-price">3,90 €</div></div><div class="item-desc">Salmon.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">M12.</span> Tekka Maki</div><div class="item-price">4,20 €</div></div><div class="item-desc">Raw tuna.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">M13.</span> California Maki</div><div class="item-price">3,90 €</div></div><div class="item-desc">Avocado, surimi.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">M14.</span> Sake Avocado Maki</div><div class="item-price">3,90 €</div></div><div class="item-desc">Salmon, avocado.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">M15.</span> Tekka Avocado Maki</div><div class="item-price">4,20 €</div></div><div class="item-desc">Raw tuna, avocado.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">M16.</span> California Spezial Maki</div><div class="item-price">4,20 €</div></div><div class="item-desc">Crayfish meat, avocado, mayonnaise.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">M17.</span> Smoked Sake Maki</div><div class="item-price">4,40 €</div></div><div class="item-desc">Smoked salmon, cream cheese.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">M18.</span> Chicken Maki</div><div class="item-price">3,90 €</div></div><div class="item-desc">Chicken, cream cheese.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">M19.</span> Unagi Maki</div><div class="item-price">4,50 €</div></div><div class="item-desc">Grilled freshwater eel.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">M20.</span> Ebi Maki</div><div class="item-price">3,90 €</div></div><div class="item-desc">Shrimp, cucumber.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">M21.</span> Tuna Roll Maki <span class="item-tag">Cay</span></div><div class="item-price">3,90 €</div></div><div class="item-desc">Cooked tuna, chili, spring onion, mayonnaise.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">M22.</span> Spicy Sake Maki <span class="item-tag">Cay</span></div><div class="item-price">3,90 €</div></div><div class="item-desc">Cooked salmon, chili, spring onion, mayonnaise.</div></div>
+  </section>
+
+  <!-- ===== FUTO MAKI ===== -->
+  <section class="cat" id="futomaki">
+    <div class="cat-head"><h2>Futo Maki</h2><span class="en">6 Stück / 12 Stück</span></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">M30.</span> Sake Futo Maki</div></div><div class="item-desc">Salmon, avocado, cucumber, radish, cream cheese.</div>
+      <div class="opts"><div class="opt"><span>6 miếng</span><span>6,50 €</span></div><div class="opt"><span>12 miếng</span><span>12,00 €</span></div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">M31.</span> Vegi Futo Maki</div></div><div class="item-desc">Avocado, cucumber, radish, kampyo, pumpkin.</div>
+      <div class="opts"><div class="opt"><span>6 miếng</span><span>6,50 €</span></div><div class="opt"><span>12 miếng</span><span>12,00 €</span></div></div></div>
+  </section>
+
+  <!-- ===== QUẢNG TRỊ SPEZIAL ROLLS ===== -->
+  <section class="cat" id="spezialrolls">
+    <div class="cat-head"><h2>Quảng Trị Spezial Rolls</h2><span class="en">je 4 Stück · 4 pieces</span></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">S1.</span> Quảng Trị Spezial Rolls 1</div><div class="item-price">6,50 €</div></div><div class="item-desc">Fried shrimp, avocado, salmon on top.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">S2.</span> Quảng Trị Spezial Rolls 2</div><div class="item-price">7,50 €</div></div><div class="item-desc">Fried shrimp, avocado, unagi on top.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">S3.</span> Rain Bow Roll</div><div class="item-price">7,50 €</div></div><div class="item-desc">Crab meat with assorted fish on top.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">S4.</span> Unagi Avo Roll</div><div class="item-price">8,30 €</div></div><div class="item-desc">Fried shrimp with avocado, unagi on top.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">S5.</span> Maguro Spezial Roll</div><div class="item-price">8,00 €</div></div><div class="item-desc">Tuna, cucumber, avocado, tuna on top.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">S6.</span> Vegetarian Spezial</div><div class="item-price">6,90 €</div></div><div class="item-desc">Arugula, cucumber, radish, kampyo, vegan cheese, inari on top.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">S7.</span> Green River Roll</div><div class="item-price">6,90 €</div></div><div class="item-desc">Arugula, bell pepper, inari, avocado, cucumber on top.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">S8.</span> Chicken Avo Roll</div><div class="item-price">7,50 €</div></div><div class="item-desc">Chicken, cucumber, cream cheese, avocado on top.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">S9.</span> Tuna Pizza</div><div class="item-price">9,00 €</div></div><div class="item-desc">Fried sushi rice topped with cooked tuna, arugula, mayonnaise, chili.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">S10.</span> Sake Pizza</div><div class="item-price">8,50 €</div></div><div class="item-desc">Fried sushi rice topped with cooked salmon, arugula, mayonnaise, chili.</div></div>
+  </section>
+
+  <!-- ===== INSIDE OUT ===== -->
+  <section class="cat" id="insideout">
+    <div class="cat-head"><h2>Inside Out</h2><span class="en">je 8 Stück · 8 pieces</span></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">I1.</span> Sake Inside Out</div><div class="item-price">6,90 €</div></div><div class="item-desc">Salmon, avocado, flying fish roe.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">I2.</span> Spicy Tuna Inside Out</div><div class="item-price">7,50 €</div></div><div class="item-desc">Raw tuna, avocado, spring onion, chili, flying fish roe.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">I3.</span> California Inside Out</div><div class="item-price">6,90 €</div></div><div class="item-desc">Surimi, avocado, flying fish roe.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">I4.</span> Ebi Inside Out</div><div class="item-price">6,90 €</div></div><div class="item-desc">Cooked shrimp, avocado, flying fish roe.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">I5.</span> Chicken Inside Out</div><div class="item-price">6,90 €</div></div><div class="item-desc">Chicken, cucumber, cream cheese, sesame.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">I6.</span> Unagi Inside Out</div><div class="item-price">7,60 €</div></div><div class="item-desc">Grilled freshwater eel, avocado, cucumber, sesame.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">I7.</span> Ibodai Inside Out</div><div class="item-price">6,90 €</div></div><div class="item-desc">Butterfish, cucumber, spring onion, chili, sesame, flying fish roe.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">I8.</span> California Spezial Inside Out</div><div class="item-price">7,50 €</div></div><div class="item-desc">Crayfish meat, avocado, mayonnaise, flying fish roe.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">I9.</span> Tuna Roll Inside Out</div><div class="item-price">6,90 €</div></div><div class="item-desc">Cooked tuna, cucumber, spring onion, chili, mayonnaise, sesame, flying fish roe.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">I10.</span> Spicy Salmon Tatar Inside Out</div><div class="item-price">7,50 €</div></div><div class="item-desc">Salmon tartare, avocado, cucumber, spring onion, mayonnaise, tobiko.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">I11.</span> Rucola Inside Out</div><div class="item-price">6,70 €</div></div><div class="item-desc">Arugula, cucumber, vegan cheese, sesame.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">I12.</span> Inari Inside Out</div><div class="item-price">6,70 €</div></div><div class="item-desc">Tofu, avocado, bell pepper, vegan cheese, sesame.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">I13.</span> Vegetarian Inside Out</div><div class="item-price">6,70 €</div></div><div class="item-desc">Kampyo, cucumber, pumpkin, mango, vegan cheese, sesame.</div></div>
+  </section>
+
+  <!-- ===== TEMAKI ===== -->
+  <section class="cat" id="temaki">
+    <div class="cat-head"><h2>Temaki Sushi</h2><span class="en">Hand Rolls</span></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">T1.</span> Vegetarian Temaki</div><div class="item-price">4,00 €</div></div><div class="item-desc">Pickled radish, cucumber, inari, sesame.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">T2.</span> Sake Temaki</div><div class="item-price">4,40 €</div></div><div class="item-desc">Salmon, avocado, cucumber, tobiko.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">T3.</span> Spicy Tuna Temaki</div><div class="item-price">4,80 €</div></div><div class="item-desc">Raw tuna, spring onion, chili, avocado, cucumber, tobiko.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">T4.</span> California Temaki</div><div class="item-price">4,40 €</div></div><div class="item-desc">Surimi, avocado, cucumber, tobiko.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">T5.</span> Unagi Temaki</div><div class="item-price">4,80 €</div></div><div class="item-desc">Grilled freshwater eel, cucumber, avocado, sesame.</div></div>
+  </section>
+
+  <!-- ===== MINI TEMPURA ROLLS ===== -->
+  <section class="cat" id="minitempura">
+    <div class="cat-head"><h2>Mini Tempura Rolls</h2><span class="en">je 8 Stück · 8 pieces</span></div>
+    <p class="cat-intro">Tất cả tempura rolls dùng kèm sốt nhà làm. · All tempura rolls served with homemade sauce.</p>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">A1.</span> Kani Roll</div><div class="item-price">6,90 €</div></div><div class="item-desc">Fried maki with surimi and cream cheese.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">A2.</span> Kani Spezial Rolls</div><div class="item-price">6,90 €</div></div><div class="item-desc">Fried maki with real crayfish meat, spring onion, mayo.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">A3.</span> Ebi Roll</div><div class="item-price">6,90 €</div></div><div class="item-desc">Fried maki with prawns.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">A4.</span> Sake Roll</div><div class="item-price">6,90 €</div></div><div class="item-desc">Fried maki with salmon and cream cheese.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">A5.</span> Unagi Roll</div><div class="item-price">6,90 €</div></div><div class="item-desc">Fried maki with grilled freshwater eel.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">A6.</span> Chicken Roll</div><div class="item-price">6,90 €</div></div><div class="item-desc">Fried maki with chicken and cream cheese.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">A7.</span> Yasai Roll</div><div class="item-price">6,90 €</div></div><div class="item-desc">Fried maki with avocado, cucumber, vegan cheese.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">A8.</span> Spicy Salmon Spezial <span class="item-tag">Cay</span></div><div class="item-price">8,70 €</div></div><div class="item-desc">Salmon tartar, cucumber, avocado, spring onion, chili mayo.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">A9.</span> Spicy Tuna Spezial <span class="item-tag">Cay</span></div><div class="item-price">8,90 €</div></div><div class="item-desc">Tuna tartar, cucumber, avocado, spring onion, chili mayo.</div></div>
+  </section>
+
+  <!-- ===== BIG TEMPURA ROLLS ===== -->
+  <section class="cat" id="bigtempura">
+    <div class="cat-head"><h2>Big Tempura Rolls</h2><span class="en">je 6 Stück · 6 pieces</span></div>
+    <p class="cat-intro">Tất cả tempura rolls dùng kèm sốt nhà làm. · All tempura rolls served with homemade sauce.</p>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">A10.</span> Yasai Futomaki Spezial</div><div class="item-price">7,50 €</div></div><div class="item-desc">Fried futomaki with cucumber, pickled radish, pumpkin, kampyo, vegan cheese.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">A11.</span> Avocado Futomaki Spezial</div><div class="item-price">7,50 €</div></div><div class="item-desc">Fried futomaki with avocado and vegan cheese.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">A12.</span> Sake Futomaki Spezial</div><div class="item-price">7,50 €</div></div><div class="item-desc">Fried futomaki with salmon, avocado, spring onion.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">A13.</span> Tuna Futomaki Spezial</div><div class="item-price">7,50 €</div></div><div class="item-desc">Fried futomaki with cooked tuna, avocado, spring onion, tobiko.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">A14.</span> Quảng Trị Sushi Roll</div><div class="item-price">10,00 €</div></div><div class="item-desc">Fried futomaki with eel, prawns, cucumber, avocado, salmon, tuna, tobiko, spring onion.</div></div>
+  </section>
+
+  <!-- ===== SUSHI MENÜ ===== -->
+  <section class="cat" id="sushimenu">
+    <div class="cat-head"><h2>Sushi Menü</h2><span class="en">Sushi Sets</span></div>
+    <div class="item"><div class="item-top"><div class="item-name">Menü 1</div><div class="item-price">12,50 €</div></div><div class="item-desc">6 Kappa Maki, 6 Hokkaido Maki, 8 Rucola I.O.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name">Menü 2</div><div class="item-price">12,50 €</div></div><div class="item-desc">1 Tamago, 1 Inari, 1 Avocado, 8 Inari I.O.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name">Menü 3</div><div class="item-price">12,50 €</div></div><div class="item-desc">1 Avocado, 1 Tamago, 1 Hokkaido, 6 Vegan Futo Maki Spezial.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name">Menü 4</div><div class="item-price">9,80 €</div></div><div class="item-desc">3 Sake, 6 Sake Maki.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name">Menü 5</div><div class="item-price">12,00 €</div></div><div class="item-desc">3 Sake, 8 Sake I.O.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name">Menü 6</div><div class="item-price">13,00 €</div></div><div class="item-desc">3 Sake, 6 Sake Futo Maki Spezial.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name">Menü 7</div><div class="item-price">14,80 €</div></div><div class="item-desc">12 Sake Maki, 8 Sake Roll.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name">Menü 8</div><div class="item-price">15,50 €</div></div><div class="item-desc">4 Sake, 6 Sake Maki, 8 Sake I.O.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name">Menü 9</div><div class="item-price">12,00 €</div></div><div class="item-desc">6 Sake Maki, 6 Tekka Maki, 8 California I.O.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name">Menü 10</div><div class="item-price">14,50 €</div></div><div class="item-desc">2 Sake, 2 Maguro, 6 Sake Maki, 6 Tekka Maki.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name">Menü 11</div><div class="item-price">14,00 €</div></div><div class="item-desc">2 Sake, 1 Maguro, 1 Unagi, 2 Ika, 2 Ebi.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name">Menü 12</div><div class="item-price">19,00 €</div></div><div class="item-desc">1 Sake, 1 Maguro, 1 Unagi, 1 Ebi, 1 Ika, 1 Ibodai, 1 Hokkiga, 6 Sake Futo Maki Spezial.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name">Menü 13</div><div class="item-price">20,80 €</div></div><div class="item-desc">2 Sake, 6 Sake Maki, 8 Sake I.O, 6 Sake Futo Maki Spezial.</div></div>
+  </section>
+
+  <!-- ===== EVENT PLATTE ===== -->
+  <section class="cat" id="eventplatte">
+    <div class="cat-head"><h2>Event Platte</h2><span class="en">Sharing Platters</span></div>
+    <div class="item"><div class="item-top"><div class="item-name">Event-Platte 1 <span class="item-tag">1–2 người</span></div><div class="item-price">44,00 €</div></div><div class="item-desc">2 Sake, 2 Salmon Rose, 6 Avocado Maki, 6 Sake Maki, 8 Sake I.O, 4 Tempura Ebi Maki (S1), 8 Sake Roll.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name">Event-Platte 2 <span class="item-tag">2–3 người</span></div><div class="item-price">60,00 €</div></div><div class="item-desc">3 Sake, 3 Maguro, 6 Avocado Maki, 6 Sake Maki, 6 Tekka Maki, 8 Sake I.O, 4 Tempura Ebi Maki (S1), 4 Maguro Spezial Roll (S5), 6 Sake Futo Maki Spezial, 8 Sake Tatar Roll.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name">Event-Platte 3 <span class="item-tag">3–4 người</span></div><div class="item-price">82,00 €</div></div><div class="item-desc">2 Sake, 2 Ika, 2 Ibodai, 2 Maguro, 2 Ebi, 2 Unagi, 6 Sake Maki, 6 Tekka Maki, 8 Sake I.O, 8 California I.O, 3 Sake Sashimi, 3 Maguro Sashimi, 3 Ibodai Sashimi, 4 Tempura Ebi Maki (S1), 4 Rain Bow Roll (S3), 6 Sake Futo Maki Spezial.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name">Event-Platte 4 <span class="item-tag">2–3 người</span></div><div class="item-price">54,00 €</div></div><div class="item-desc">2 Avocado Nigiri, 2 Inari Nigiri, 6 Avocado Maki, 6 Hokkaido Maki, 6 Kappa Maki, 4 Vegetarian Spezial (S6), 8 Vegetarian I.O, 6 Vegetarian Futo Maki Spezial.</div></div>
+  </section>
+
+  <!-- ===== DESSERT ===== -->
+  <section class="cat" id="dessert">
+    <div class="cat-head"><h2>Tráng miệng</h2><span class="en">Nachtisch · Dessert</span></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">90.</span> Chuối Chiên</div><div class="item-price">4,50 €</div></div><div class="item-desc">Baked bananas with honey.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">91.</span> Chuối Chiên Kem</div><div class="item-price">5,50 €</div></div><div class="item-desc">Baked bananas with ice.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">92.</span> Mochi</div><div class="item-price">5,20 €</div></div><div class="item-desc">Small rice cakes with filling.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">93.</span> Mochi Eis</div><div class="item-price">5,50 €</div></div><div class="item-desc">Rice cakes filled with assorted ice cream.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">94.</span> Gomaball</div><div class="item-price">4,50 €</div></div><div class="item-desc">Sesame balls filled with red bean paste.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">95.</span> Kem Vani</div><div class="item-price">4,50 €</div></div><div class="item-desc">Vanilla ice cream with mango sauce.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">96.</span> Dừa Chiên</div><div class="item-price">4,50 €</div></div><div class="item-desc">Baked pineapple with honey.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">97.</span> Dừa Chiên Kem</div><div class="item-price">5,50 €</div></div><div class="item-desc">Baked pineapple with ice cream.</div></div>
+  </section>
+
+  <!-- ===== BEILAGEN / SIDES ===== -->
+  <section class="cat" id="sides">
+    <div class="cat-head"><h2>Món phụ</h2><span class="en">Beilagen · Sides</span></div>
+    <div class="item"><div class="item-top"><div class="item-name">Reis <span style="color:var(--muted);font-weight:400">/ Cơm</span></div><div class="item-price">2,50 €</div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name">Ingwer <span style="color:var(--muted);font-weight:400">/ Gừng ngâm</span></div><div class="item-price">2,00 €</div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name">Mayo, Ketchup</div><div class="item-price">1,50 €</div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name">Unagi Sauce, Sojasauce, Chili Sauce</div><div class="item-price">1,50 €</div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name">Sojasauce Flasche <span style="color:var(--muted);font-weight:400">(150 ml)</span></div><div class="item-price">3,90 €</div></div></div>
+  </section>
+
+  <!-- ===== BIG BOOM ===== -->
+  <section class="cat" id="bigboom">
+    <div class="cat-head"><h2>Quảng Trị Big Boom</h2><span class="en">Signature Cocktails</span></div>
+
+    <div class="item"><div class="item-top"><div class="item-name">Thành cổ Quảng Trị</div><div class="item-price">10,90 €</div></div><div class="item-desc">Saigon Beer · Rum · Strawberry · Lime · Mint · Ice.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name">Thạch Hãn Boom</div><div class="item-price">10,90 €</div></div><div class="item-desc">Hanoi Beer · Pitu · Lime Juice · Orange · Cane Sugar · Ice.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name">Hiền Lương Boom</div><div class="item-price">10,90 €</div></div><div class="item-desc">Desperados Beer · Tequila · Lime Juice · Blue Curaçao · Mint · Ice.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name">Đồng Hà Boom</div><div class="item-price">10,90 €</div></div><div class="item-desc">Tiger Beer · Bacardi · Lime Juice · Orange · Blue Curaçao · Mint · Ice.</div></div>
+  </section>
+
+  <!-- ===== ĐỒ UỐNG & TRÁNG MIỆNG ===== -->
+  <section class="cat" id="douong">
+    <div class="cat-head"><h2>Đồ uống &amp; Tráng miệng</h2><span class="en">Drinks &amp; Dessert</span></div>
+
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QT20.</span> Sting Energy Erdbeer <span style="color:var(--muted);font-weight:400">0,3L</span></div><div class="item-price">4,00 €</div></div><div class="item-desc">Strawberry.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QT21.</span> Bò húc Thái <span style="color:var(--muted);font-weight:400">0,3L</span></div><div class="item-price">4,00 €</div></div><div class="item-desc">Thai Red Bull.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QT22.</span> Trà xanh 0° <span style="color:var(--muted);font-weight:400">0,3L</span></div><div class="item-price">4,00 €</div></div><div class="item-desc">Green iced tea.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QT23.</span> Nước mía <span style="color:var(--muted);font-weight:400">0,3L</span></div><div class="item-price">5,00 €</div></div><div class="item-desc">Sugar cane juice.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QT24.</span> Nước dừa <span style="color:var(--muted);font-weight:400">0,3L</span></div><div class="item-price">5,00 €</div></div><div class="item-desc">Coconut water.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QT25.</span> Trái dừa (1 pc.)</div><div class="item-price">6,00 €</div></div><div class="item-desc">Fresh whole coconut.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QT26.</span> Cam vắt</div><div class="item-price">6,00 €</div></div><div class="item-desc">Freshly squeezed orange juice with ice.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QT27.</span> Đá me <span style="color:var(--muted);font-weight:400">0,3L</span></div><div class="item-price">6,00 €</div></div><div class="item-desc">Tamarind juice with ice.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QT28.</span> Tắc xí muội <span style="color:var(--muted);font-weight:400">0,3L</span></div><div class="item-price">6,00 €</div></div><div class="item-desc">Salted plum kumquat drink.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QT29.</span> Mơ xí muội <span style="color:var(--muted);font-weight:400">0,3L</span></div><div class="item-price">6,00 €</div></div><div class="item-desc">Salted plum juice.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QT30.</span> Chanh Muối <span style="color:var(--muted);font-weight:400">0,3L</span></div><div class="item-price">6,00 €</div></div><div class="item-desc">Salted lemonade.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QT31.</span> Nước sấu <span style="color:var(--muted);font-weight:400">0,3L</span></div><div class="item-price">6,00 €</div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QT32.</span> Cà phê Muối <span style="color:var(--muted);font-weight:400">nóng / đá</span></div><div class="item-price">5,00 €</div></div><div class="item-desc">Salted coffee.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QT33.</span> Cà phê Trứng <span style="color:var(--muted);font-weight:400">nóng / đá</span></div><div class="item-price">5,00 €</div></div><div class="item-desc">Egg coffee.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QT34.</span> Rau câu trái dừa</div><div class="item-price">6,00 €</div></div><div class="item-desc">Homemade coconut water and coconut milk jelly, served chilled in the coconut.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QT35.</span> Chè thập cẩm</div><div class="item-price">6,00 €</div></div><div class="item-desc">With red beans, mung beans, tapioca, jelly, and coconut milk.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QT36.</span> Doremon Cake</div><div class="item-price">6,00 €</div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">QT37.</span> Trà bí đao <span style="color:var(--muted);font-weight:400">0,3L</span></div><div class="item-price">5,00 €</div></div><div class="item-desc">Winter melon tea.</div></div>
+  </section>
+
+  <!-- ===== TRÀ ===== -->
+  <section class="cat" id="tra">
+    <div class="cat-head"><h2>Trà</h2><span class="en">Tee · Tea</span></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">100.</span> Jasmintee <span style="color:var(--muted);font-weight:400">(Kännchen · ấm)</span></div><div class="item-price">3,50 €</div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">101.</span> Grüner Tee <span style="color:var(--muted);font-weight:400">(Kännchen · ấm)</span></div><div class="item-price">3,50 €</div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">102.</span> Ingwertee</div><div class="item-price">3,50 €</div></div><div class="item-desc">With mint, honey, lime.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">103.</span> Zitronengras Tee</div><div class="item-price">4,00 €</div></div><div class="item-desc">With lime and honey.</div></div>
+  </section>
+
+  <!-- ===== CÀ PHÊ ===== -->
+  <section class="cat" id="caphe">
+    <div class="cat-head"><h2>Cà phê</h2><span class="en">Kaffee · Coffee</span></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">104.</span> Vietnamesischer Kaffee <span style="color:var(--muted);font-weight:400">(warm)</span></div><div class="item-price">3,50 €</div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">105.</span> Vietnamesischer Eiskaffee <span style="color:var(--muted);font-weight:400">(kalt)</span></div><div class="item-price">3,50 €</div></div></div>
+  </section>
+
+  <!-- ===== NƯỚC NGỌT ===== -->
+  <section class="cat" id="nuocngot">
+    <div class="cat-head"><h2>Nước ngọt</h2><span class="en">Soft Drinks</span></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">106.</span> Stilles Wasser</div></div>
+      <div class="opts"><div class="opt"><span>0,25 L</span><span>2,40 €</span></div><div class="opt"><span>0,4 L</span><span>3,80 €</span></div><div class="opt"><span>0,75 L</span><span>5,00 €</span></div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">107.</span> Mineral Wasser</div></div>
+      <div class="opts"><div class="opt"><span>0,25 L</span><span>2,40 €</span></div><div class="opt"><span>0,4 L</span><span>3,80 €</span></div><div class="opt"><span>0,75 L</span><span>5,00 €</span></div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">108.</span> Coca Cola / Coca Light / Sprite / Fanta</div></div>
+      <div class="opts"><div class="opt"><span>0,2 L</span><span>3,00 €</span></div><div class="opt"><span>0,4 L</span><span>4,00 €</span></div><div class="opt"><span>1 L</span><span>6,00 €</span></div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">109.</span> Ginger Ale</div></div>
+      <div class="opts"><div class="opt"><span>0,2 L</span><span>3,20 €</span></div><div class="opt"><span>0,4 L</span><span>4,00 €</span></div><div class="opt"><span>1 L</span><span>6,00 €</span></div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">110.</span> Saft / Schorle</div></div><div class="item-desc">Orangen, Ananas, Maracuja, Apfel, Mango, Lychee.</div>
+      <div class="opts"><div class="opt"><span>0,2 L</span><span>3,20 €</span></div><div class="opt"><span>0,4 L</span><span>4,20 €</span></div></div></div>
+  </section>
+
+  <!-- ===== HOMEMADE & LASSI ===== -->
+  <section class="cat" id="homemade">
+    <div class="cat-head"><h2>Homemade &amp; Lassi</h2><span class="en">Homemade Drinks · Lassi · Shakes</span></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">111.</span> Da chanh</div><div class="item-price">5,50 €</div></div><div class="item-desc">Lime, cane sugar, soda water, mint.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">112.</span> Lemongras Ice Tea</div><div class="item-price">5,50 €</div></div><div class="item-desc">Lemongrass, lime, sugar.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">113.</span> Mango Lassi <span style="color:var(--muted);font-weight:400">0,4 L</span></div><div class="item-price">5,50 €</div></div><div class="item-desc">Yogurt, mango puree, mango juice, milk.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">114.</span> Avocado Lassi <span style="color:var(--muted);font-weight:400">0,4 L</span></div><div class="item-price">5,50 €</div></div><div class="item-desc">Yogurt, milk, avocado.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">115.</span> Ananassaft – Minze <span style="color:var(--muted);font-weight:400">0,4 L</span></div><div class="item-price">5,50 €</div></div><div class="item-desc">Pineapple juice, pineapple, mint.</div></div>
+  </section>
+
+  <!-- ===== BIA & RƯỢU ===== -->
+  <section class="cat" id="bia">
+    <div class="cat-head"><h2>Bia &amp; Rượu mạnh</h2><span class="en">Bier · Spirituosen</span></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">116.</span> Bitburger Pils <span style="color:var(--muted);font-weight:400">(vom Fass · bia tươi)</span></div></div>
+      <div class="opts"><div class="opt"><span>0,3 L</span><span>3,50 €</span></div><div class="opt"><span>0,5 L</span><span>4,30 €</span></div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">117.</span> Benediktiner Weizenbier <span style="color:var(--muted);font-weight:400">0,5 L</span></div><div class="item-price">4,30 €</div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">118.</span> Benediktiner Kristallweizen <span style="color:var(--muted);font-weight:400">0,5 L</span></div><div class="item-price">4,30 €</div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">119.</span> Benediktiner Weizenbier alkoholfrei <span style="color:var(--muted);font-weight:400">0,5 L</span></div><div class="item-price">4,30 €</div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">120.</span> Radler</div></div>
+      <div class="opts"><div class="opt"><span>0,3 L</span><span>3,50 €</span></div><div class="opt"><span>0,5 L</span><span>4,30 €</span></div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">121.</span> Saigon Bier <span style="color:var(--muted);font-weight:400">(Vietnam)</span></div><div class="item-price">3,80 €</div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">121a.</span> Hanoi Bier <span style="color:var(--muted);font-weight:400">(Vietnam)</span></div><div class="item-price">3,80 €</div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">122.</span> Tiger Bier <span style="color:var(--muted);font-weight:400">(Singapur)</span></div><div class="item-price">3,80 €</div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">123.</span> Singha Bier <span style="color:var(--muted);font-weight:400">(Thailand)</span></div><div class="item-price">3,80 €</div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">124.</span> Sapporo Bier <span style="color:var(--muted);font-weight:400">(Japan)</span></div><div class="item-price">3,80 €</div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">125.</span> Tsingtao Bier <span style="color:var(--muted);font-weight:400">(China)</span></div><div class="item-price">3,80 €</div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">126.</span> Sake <span style="color:var(--muted);font-weight:400">0,1 L</span></div><div class="item-price">4,50 €</div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">127.</span> Vietnamesischer Reisschnaps <span style="color:var(--muted);font-weight:400">0,2 L</span></div><div class="item-price">3,50 €</div></div></div>
+  </section>
+
+  <!-- ===== VANG ===== -->
+  <section class="cat" id="vang">
+    <div class="cat-head"><h2>Vang</h2><span class="en">Wein · Wine</span></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">128.</span> Riesling <span style="color:var(--muted);font-weight:400">(weiß / white)</span></div></div><div class="item-desc">Balanced, elegant, quality wine.</div>
+      <div class="opts"><div class="opt"><span>0,2 L (ly)</span><span>5,50 €</span></div><div class="opt"><span>Chai / Flasche</span><span>23,00 €</span></div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">129.</span> Chardonnay <span style="color:var(--muted);font-weight:400">(weiß / white)</span></div></div><div class="item-desc">Elegant, quality wine.</div>
+      <div class="opts"><div class="opt"><span>0,2 L (ly)</span><span>5,50 €</span></div><div class="opt"><span>Chai / Flasche</span><span>23,00 €</span></div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">130.</span> Merlot VdP</div></div><div class="item-desc">Vins Fessy: harmonious, fruity, and round.</div>
+      <div class="opts"><div class="opt"><span>0,2 L (ly)</span><span>5,50 €</span></div><div class="opt"><span>Chai / Flasche</span><span>23,00 €</span></div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">131.</span> Syrah Rosé VdP</div></div><div class="item-desc">Vins Fessy: hearty, aromatic, and easy-drinking.</div>
+      <div class="opts"><div class="opt"><span>0,2 L (ly)</span><span>5,50 €</span></div><div class="opt"><span>Chai / Flasche</span><span>23,00 €</span></div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">132.</span> Prosecco di Valdobbiadene</div></div><div class="item-desc">Vino Frizzante D.O.C., Le Manzane: sparkling and fresh, with a pleasant fruity sweetness — essentially the authentic Prosecco from its region of origin.</div>
+      <div class="opts"><div class="opt"><span>0,2 L (ly)</span><span>5,50 €</span></div><div class="opt"><span>Chai / Flasche</span><span>23,00 €</span></div></div></div>
+  </section>
+
+  <!-- ===== LONGDRINKS ===== -->
+  <section class="cat" id="longdrinks">
+    <div class="cat-head"><h2>Longdrinks</h2><span class="en">Longdrinks</span></div>
+    <p class="cat-intro">Tất cả 0,3 L.</p>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">140.</span> Gin Tonic</div><div class="item-price">5,50 €</div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">141.</span> Wodka Lemon</div><div class="item-price">5,50 €</div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">142.</span> Cola Whisky</div><div class="item-price">5,50 €</div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">143.</span> Campari Orange</div><div class="item-price">5,50 €</div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">144.</span> Aperol Sprit</div><div class="item-price">5,50 €</div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">145.</span> Aperol Tonic</div><div class="item-price">5,50 €</div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">146.</span> Hugo</div><div class="item-price">5,50 €</div></div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">147.</span> Havanna Club mit Cola</div><div class="item-price">5,50 €</div></div></div>
+  </section>
+
+  <!-- ===== MOCKTAIL ===== -->
+  <section class="cat" id="mocktail">
+    <div class="cat-head"><h2>Mocktail</h2><span class="en">Alkoholfreie Cocktails</span></div>
+    <p class="cat-intro">Tất cả 0,3 L.</p>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">150.</span> Mango Calpico</div><div class="item-price">5,50 €</div></div><div class="item-desc">Japanese citrus whey, orange and mango.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">151.</span> Maracuja Calpico</div><div class="item-price">5,50 €</div></div><div class="item-desc">Maracuja, fresh limes, orange and mint.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">152.</span> Caribbean Sun</div><div class="item-price">5,50 €</div></div><div class="item-desc">Papaya, mango, passionfruit, ananas, orange juice.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">153.</span> Paradise Dream</div><div class="item-price">5,50 €</div></div><div class="item-desc">Strawberry, peach, cream, pineapple juice.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">154.</span> Coconut Beach</div><div class="item-price">5,50 €</div></div><div class="item-desc">Cream of coconut, cream, pineapple juice.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">155.</span> Mosquito</div><div class="item-price">5,50 €</div></div><div class="item-desc">Fresh mint, lime juice, lime, brown sugar, ginger ale.</div></div>
+  </section>
+
+  <!-- ===== COCKTAIL ===== -->
+  <section class="cat" id="cocktail">
+    <div class="cat-head"><h2>Cocktail</h2><span class="en">Alkoholhaltige Cocktails</span></div>
+    <p class="cat-intro">Tất cả 0,3 L.</p>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">160.</span> Caipico Vodka</div><div class="item-price">7,90 €</div></div><div class="item-desc">Mango caipico, vodka, lime.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">161.</span> Mai Tai</div><div class="item-price">7,90 €</div></div><div class="item-desc">White rum, brown rum, almond sirup, lime, grenadine, orange juice.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">162.</span> Swimming Pool</div><div class="item-price">7,90 €</div></div><div class="item-desc">White rum, vodka, cream coconut, blue curacao, cream, pineapple juice.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">163.</span> Tequila Sunrise</div><div class="item-price">7,90 €</div></div><div class="item-desc">White tequila, lime, grenadine, orange juice.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">164.</span> Pina Colada</div><div class="item-price">7,90 €</div></div><div class="item-desc">Cream of coconut, rum, cream, pineapple juice.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">165.</span> Sex on the Beach</div><div class="item-price">7,90 €</div></div><div class="item-desc">Vodka, maracuja, water melon, banana, orange- and pineapple juice.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">166.</span> Long Island Iced Tea</div><div class="item-price">7,90 €</div></div><div class="item-desc">Rum, vodka, tequila, tripple sec, lime, cola.</div></div>
+    <div class="item"><div class="item-top"><div class="item-name"><span class="code">167.</span> Mojito</div><div class="item-price">7,90 €</div></div><div class="item-desc">Havana club, lime juice, fresh mint, brown sugar, lime, soda.</div></div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+  <div class="name">QUẢNG TRỊ QUÁN</div>
+  <p>
+    Karl-Marx-Allee 108 · 10243 Berlin, Germany<br>
+    <strong style="color:#e7ddc6">Mo–Fr</strong> 11:30–22:00 Uhr · <strong style="color:#e7ddc6">Sa, So &amp; Feiertage</strong> 12:00–22:00 Uhr<br>
+    Tel: 0176 68484099
+  </p>
+  <p class="note" style="text-align:left;max-width:640px">
+    <strong style="color:#b6ab92">Allergene / Chất gây dị ứng:</strong>
+    A) Glutenhaltige Getreide · C) Eier · D) Fische · E) Erdnüsse · F) Sojabohnen · G) Milch · H) Schalenfrüchte (Nüsse) · I) Sellerie · J) Senf · K) Sesam · L) Schwefeldioxid und Sulfite · M) Lupinen · N) Weichtiere.<br><br>
+    <strong style="color:#b6ab92">Zusatzstoffe / Phụ gia:</strong>
+    1. mit Süßungsmitteln · 2. chininhaltig · 3. mit Farbstoffen · 4. koffeinhaltig · 5. mit Taurin · 6. mit Antioxidationsmitteln · 7. mit Phosphat · 8. mit Milcheiweiß · 9. mit Konservierungsstoffen · 10. gewachst · 11. geschwefelt · 12. geschwärzt · 13. enthält eine Phenylalaninquelle · 14. mit Geschmacksverstärker · 15. mit Nitritpökelsalz · 16. erhöhter Koffeingehalt.
+  </p>
+  <p class="note">Bei Fragen zu Allergenen und Zusatzstoffen wenden Sie sich bitte an unser Servicepersonal. Die gezeigten Bilder dienen nur als Beispiel. Alle Preise inklusive MwSt. und Service.</p>
+</footer>
+
+<script>
+// Story language tabs
+document.querySelectorAll('.story .tabs button').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var lang = btn.dataset.lang;
+    document.querySelectorAll('.story .tabs button').forEach(function(b){b.classList.toggle('active', b===btn);});
+    document.querySelectorAll('.story-panel').forEach(function(p){p.classList.toggle('active', p.dataset.panel===lang);});
+  });
+});
+</script>
+</body>
+</html>
