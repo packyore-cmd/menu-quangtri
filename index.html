@@ -864,6 +864,26 @@ document.querySelectorAll('.story .tabs button').forEach(function(btn){
     document.querySelectorAll('.story-panel').forEach(function(p){p.classList.toggle('active', p.dataset.panel===lang);});
   });
 });
+
+// Auto-resize: báo chiều cao thật của trang cho Webcake (parent) để iframe tự co giãn
+(function(){
+  function sendHeight(){
+    var h = Math.max(
+      document.documentElement.scrollHeight,
+      document.body ? document.body.scrollHeight : 0
+    );
+    try { parent.postMessage({ qtqMenuHeight: h }, '*'); } catch(e){}
+  }
+  window.addEventListener('load', sendHeight);
+  window.addEventListener('resize', sendHeight);
+  if (window.ResizeObserver && document.body){
+    new ResizeObserver(sendHeight).observe(document.body);
+  }
+  // Gửi lại vài lần sau khi tải xong (phòng khi font/ảnh làm layout xê dịch)
+  setTimeout(sendHeight, 300);
+  setTimeout(sendHeight, 1200);
+  setTimeout(sendHeight, 2500);
+})();
 </script>
 </body>
 </html>
